@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=room
+comment0.target=AnimalRoom(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ AnimalRoom\r\n
+comment1.params=id\ year\ month\ day\ isFemale\ tag\ genotype
+comment1.target=void\ addMouse(int,\ int,\ int,\ int,\ boolean,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+comment2.params=id
+comment2.target=void\ addCage(int)
+comment3.params=m
+comment3.target=void\ removeMouse(Mouse)
+comment4.params=c
+comment4.target=void\ removeCage(Cage)
+comment5.params=
+comment5.target=int\ getNumMouse()
+comment6.params=
+comment6.target=int\ getNumCage()
+comment7.params=
+comment7.target=java.util.ArrayList\ getMouseList()
+comment8.params=
+comment8.target=java.util.ArrayList\ getCageList()
+comment9.params=id
+comment9.target=Mouse\ getMouse(int)
+numComments=10

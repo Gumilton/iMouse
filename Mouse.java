@@ -26,15 +26,20 @@ public class Mouse
     /**
      * Constructor for objects of class Mouse
      */
-    public Mouse()
+    public Mouse(int id, int year, int month, int day,
+                    boolean isFemale, String tag, String genotype)
     {
         // initialise instance variables
-        id = 0;
+        this.id = id;
         birthday = Calendar.getInstance();
-        isFemale = false;
-        tag = null;
-        genotype = "WT";
+        birthday.set(year, month - 1, day);
+        this.isFemale = isFemale;
+        this.tag = tag;
+        this.genotype = genotype;
         cage = null;
+        pastMates = new ArrayList<Mouse>();
+        currentMates = new ArrayList<Mouse>();
+        offsprings = new ArrayList<Mouse>();
     }
     
     // getter functions

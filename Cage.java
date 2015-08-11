@@ -21,10 +21,10 @@ public class Cage
     /**
      * Constructor for objects of class Cage
      */
-    public Cage()
+    public Cage(int id)
     {
         // initialise instance variables
-        id = 0;
+        id = id;
         adultNum = 0;
         pupNum = 0;
         isMating = false;
@@ -125,10 +125,16 @@ public class Cage
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public void setNote(String note)
+    public void addNote(String note)
     {
         // put your code here
         this.notes.add(note);
+    }
+    
+    public void removeNote(String note)
+    {
+        // put your code here
+        this.notes.remove(note);
     }
     
     // cage function

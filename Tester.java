@@ -10,14 +10,42 @@ public class Tester
     // instance variables - replace the example below with your own
     public static void  main(String[] args) {
         
-        Mouse m1 = new Mouse();
-        m1.setBirthday(2015, 8, 10);
+        System.out.println("Initiate Animal Room:");
+        AnimalRoom room = new AnimalRoom("134c");
         
+        
+        System.out.println("Adding Mouse:");
+        room.addMouse(1,2015,8,1,false,"","WT");
+        room.addMouse(2,2015,7,0,true,"","WT");
+        room.addMouse(3,2015,6,1,true,"","WT");
+        
+        
+        System.out.println("Adding Cage:");
+        room.addCage(1);
+        
+        
+        System.out.println("Print Mouse Birthday:");
         DateFormat dateFormat = DateFormat.getDateInstance();
-        System.out.println(dateFormat.format(m1.getBirthday().getTime()));
-        System.out.println(m1.ageDay());
-        System.out.println(m1.ageWeek());
-        System.out.println(m1.ageMonth());
+        for(Mouse m:room.getMouseList()){
+            System.out.println(m.getID());
+            System.out.println(dateFormat.format(m.getBirthday().getTime()));
+        }
+        
+        
+        System.out.println("Print Mouse ID 2 information:");
+        Mouse s = room.getMouse(2);        
+        System.out.println("ID is: " + s.getID());
+        System.out.println("ID is: " + s.getID() + "\n" +
+                            "Birthday is: " + dateFormat.format(s.getBirthday().getTime()) + "\n" +
+                            "Gender: " + s.isFemale() + "\n" +
+                            "Age is: " + s.ageWeek() + " weeks");
+//         m1.setBirthday(2015, 8, 10);
+//         
+//         DateFormat dateFormat = DateFormat.getDateInstance();
+//         System.out.println(dateFormat.format(m1.getBirthday().getTime()));
+//         System.out.println(m1.ageDay());
+//         System.out.println(m1.ageWeek());
+//         System.out.println(m1.ageMonth());
         
         
     }
