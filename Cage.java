@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 /**
  * Write a description of class Cage here.
  * 
@@ -12,8 +14,8 @@ public class Cage
     private int adultNum;
     private int pupNum;
     private boolean isMating;
-    private String[] notes;
-    private Mouse[] mouses;
+    private ArrayList<String> notes;
+    private ArrayList<Mouse> mouses;
     
 
     /**
@@ -26,7 +28,7 @@ public class Cage
         adultNum = 0;
         pupNum = 0;
         isMating = false;
-        mouses = new Mouse[adultNum + pupNum];
+        
     }
     
     // getter functions
@@ -85,7 +87,7 @@ public class Cage
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public String[] getNote()
+    public ArrayList<String> getNote()
     {
         // put your code here
         return notes;
@@ -123,10 +125,10 @@ public class Cage
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public void setNote(String[] notes)
+    public void setNote(String note)
     {
         // put your code here
-        this.notes = notes;
+        this.notes.add(note);
     }
     
     // cage function
@@ -146,17 +148,12 @@ public class Cage
             m.setCage(this);
         }
         
-        
-        adultNum ++;
-        
-        Mouse[] oldMouses = mouses;
-        mouses = new Mouse[adultNum + pupNum];
-        
-        for(int i = 0; i < oldMouses.length; i ++) {
-            mouses[i] = oldMouses[i];
+        if(m.ageWeek() < 3) {
+            pupNum ++;
         }
+        else adultNum ++;
         
-        mouses[mouses.length -1] = m;
+        mouses.add(m);
     }
     
     /**
@@ -168,6 +165,6 @@ public class Cage
     public void removeMouse(Mouse m)
     {
         // put your code here
-        this.notes = notes;
+        mouses.remove(m);
     }
 }

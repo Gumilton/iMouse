@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.util.Calendar;
+import java.util.ArrayList;
 /**
  * This is a class of mouse with basic information, including gender, id, birthday, tag and genotype.
  * Tow reference will be given to its father and mother.
@@ -18,7 +19,9 @@ public class Mouse
     private Mouse mother;
     private String genotype;
     private Cage cage;
-    private String[] mates;
+    private ArrayList<Mouse> pastMates;
+    private ArrayList<Mouse> currentMates;
+    private ArrayList<Mouse> offsprings;
 
     /**
      * Constructor for objects of class Mouse
@@ -265,5 +268,7 @@ public class Mouse
         return diff/(float) (1000 * 60 * 60 * 24 * 7 * 30);
     }
     
-    
+    public void mate(){
+        
+    }
 }
