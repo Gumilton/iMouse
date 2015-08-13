@@ -18,23 +18,13 @@ dependency6.from=Tester
 dependency6.to=Mouse
 dependency6.type=UsesDependency
 objectbench.height=370
-<<<<<<< HEAD
-objectbench.width=668
-package.editor.height=252
-package.editor.width=560
-package.editor.x=752
-package.editor.y=138
-package.numDependencies=3
-package.numTargets=4
-=======
-objectbench.width=255
+objectbench.width=959
 package.editor.height=252
 package.editor.width=851
-package.editor.x=658
-package.editor.y=150
+package.editor.x=461
+package.editor.y=143
 package.numDependencies=6
 package.numTargets=5
->>>>>>> 4140314f6e67011768769ab0e7b814d5bf03bc66
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -77,10 +67,6 @@ target3.typeParameters=
 target3.width=80
 target3.x=130
 target3.y=10
-<<<<<<< HEAD
-target4.height=50
-target4.name=AnimalRoom
-=======
 target4.editor.height=700
 target4.editor.width=1103
 target4.editor.x=567
@@ -88,21 +74,16 @@ target4.editor.y=218
 target4.height=50
 target4.name=AnimalRoom
 target4.naviview.expanded=true
->>>>>>> 4140314f6e67011768769ab0e7b814d5bf03bc66
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
 target4.width=100
-<<<<<<< HEAD
-target4.x=70
-target4.y=70
-=======
 target4.x=300
 target4.y=60
 target5.editor.height=700
 target5.editor.width=900
 target5.editor.x=310
-target5.editor.y=164
+target5.editor.y=130
 target5.height=50
 target5.name=GUI
 target5.naviview.expanded=true
@@ -110,6 +91,5 @@ target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
 target5.width=80
-target5.x=440
-target5.y=140
->>>>>>> 4140314f6e67011768769ab0e7b814d5bf03bc66
+target5.x=680
+target5.y=150

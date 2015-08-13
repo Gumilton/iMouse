@@ -13,7 +13,7 @@ public class GUI
     // instance variables - replace the example below with your own
     
     JFrame frame;
-    cagePanel roomFloor;
+    floorPanel roomFloor;
     ArrayList<cagePanel> cageList;
     
     public GUI() {
@@ -65,56 +65,59 @@ public class GUI
         
         // text = new JTextArea(10,20);
         
-        roomFloor = new cagePanel();
+        roomFloor = new floorPanel();
+        roomFloor.setLayout(new GridLayout(8,8));
+        //roomFloor.setLayout(new BoxLayout(roomFloor, BoxLayout.X_AXIS));
+        
         roomFloor.setBackground(Color.ORANGE);
+        
         roomFloor.add(new cagePanel());
-        JScrollPane scroller = new JScrollPane(roomFloor);
-        // text.setLineWrap(true);
         
-        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        
-        panelCenter.add(scroller);
+        panelCenter.add(roomFloor);
         
         JButton addTextButton = new JButton("Add Text");
         addTextButton.addActionListener(roomFloor);
         panelSouth.add(addTextButton);
         
         frame.getContentPane().add(BorderLayout.NORTH, panelNorth);
-        frame.getContentPane().add(BorderLayout.CENTER, scroller);
+        frame.getContentPane().add(BorderLayout.CENTER, roomFloor);
         frame.getContentPane().add(BorderLayout.WEST, panelWest);
         frame.getContentPane().add(BorderLayout.EAST, panelEast);
         frame.getContentPane().add(BorderLayout.SOUTH, panelSouth);
         frame.setSize(800,600);
+        //frame.pack();
         frame.setVisible(true);
     }
     
-    public void actionPerformed(ActionEvent ev) {
-        // text.append("Hahaha \n");
-        cageList.add(new cagePanel());
-        for(cagePanel cage:cageList) {
-            roomFloor.add(new cagePanel());
-        }
-        System.out.println(cageList.size());
-        frame.repaint();
-    }
     
-    
-    
-    private class cagePanel extends JPanel implements ActionListener
+    private class cagePanel extends JPanel
     {
-        public void actionPerformed(ActionEvent ev) {
-            repaint();
-            
-        }
         
         public void paintComponent (Graphics g) {
             int r = (int) (Math.random() *250);
             int gr = (int) (Math.random() *250);
             int b = (int) (Math.random() *250);
-            g.setColor(new Color(r,gr,b));
-            g.fillRect(15,15, 300, 300);
+            g.setColor(Color.BLUE);
+            g.fillRect(15,15, 50, 50);
         }
+        
+    }
+    
+    
+    private class floorPanel extends JPanel implements ActionListener
+    {
+        public void actionPerformed(ActionEvent ev) {
+            cagePanel cp = new cagePanel();
+            cageList.add(cp);
+            
+            roomFloor.add(cp);
+            
+            roomFloor.revalidate();
+            roomFloor.repaint();
+            //frame.getContentPane().add(BorderLayout.CENTER, roomFloor);
+            
+        }
+        
         
     }
 }
