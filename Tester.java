@@ -39,13 +39,6 @@ public class Tester
                             "Birthday is: " + dateFormat.format(s.getBirthday().getTime()) + "\n" +
                             "Gender: " + s.isFemale() + "\n" +
                             "Age is: " + s.ageWeek() + " weeks");
-//         m1.setBirthday(2015, 8, 10);
-//         
-//         DateFormat dateFormat = DateFormat.getDateInstance();
-//         System.out.println(dateFormat.format(m1.getBirthday().getTime()));
-//         System.out.println(m1.ageDay());
-//         System.out.println(m1.ageWeek());
-//         System.out.println(m1.ageMonth());
         
         
     }
