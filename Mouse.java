@@ -1,6 +1,7 @@
 import java.util.Date;
 import java.util.Calendar;
 import java.util.ArrayList;
+import java.io.*;
 /**
  * This is a class of mouse with basic information, including gender, id, birthday, tag and genotype.
  * Tow reference will be given to its father and mother.
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author Goomilton
  * @version 1.0
  */
-public class Mouse
+public class Mouse implements Serializable
 {
     // instance variables - replace the example below with your own
     private int id;

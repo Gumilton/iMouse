@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.io.*;
 /**
  * Write a description of class AnimalRoom here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AnimalRoom
+public class AnimalRoom implements Serializable
 {
     // instance variables - replace the example below with your own
     private ArrayList<Mouse> listMouse;

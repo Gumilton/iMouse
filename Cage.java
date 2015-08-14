@@ -1,13 +1,13 @@
 
 import java.util.ArrayList;
-
+import java.io.*;
 /**
  * Write a description of class Cage here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Cage
+public class Cage implements Serializable
 {
     // instance variables - replace the example below with your own
     private int id;
