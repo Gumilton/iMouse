@@ -67,6 +67,10 @@ public class AnimalRoom implements Serializable
     public int getNumCage (){
         return listCage.size();
     }    
+        
+    public String getRoomID (){
+        return this.roomID;
+    }    
     
     
     public ArrayList<Mouse> getMouseList (){
