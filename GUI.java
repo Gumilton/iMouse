@@ -15,12 +15,13 @@ public class GUI implements Serializable
     
     JFrame frame;
     floorPanel roomFloor;
-    ArrayList<cagePanel> cageList;
+    AnimalRoom room;
     
     public GUI() {
         frame = new JFrame("iMouse Inventory");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        cageList = new ArrayList<cagePanel> ();
+        String roomID = JOptionPane.showInputDialog( "Type in room number:");
+        room = new AnimalRoom(roomID);
     }
     
     public static void main(String[] args){
@@ -57,9 +58,18 @@ public class GUI implements Serializable
         panelWest.setBackground(Color.YELLOW);
         panelWest.setLayout(new BoxLayout(panelWest, BoxLayout.Y_AXIS));
         
-        panelWest.add(new JButton("Import"));
-        panelWest.add(new JButton("Export"));
-        panelWest.add(new JButton("Undo"));
+        JButton buttonImport = new JButton("Import");
+        panelWest.add(buttonImport);
+        
+        JButton buttonExport = new JButton("Export");
+        panelWest.add(buttonExport);
+        
+        JButton buttonUndo = new JButton("Undo");
+        panelWest.add(buttonUndo);
+        
+        JButton buttonSave = new JButton("Save");
+        buttonSave.addActionListener(new SaveListener());
+        panelWest.add(buttonSave);
         
         // set up center scroll
         panelCenter.setBackground(Color.darkGray);
@@ -72,11 +82,9 @@ public class GUI implements Serializable
         
         roomFloor.setBackground(Color.ORANGE);
         
-        roomFloor.add(new cagePanel());
-        
         panelCenter.add(roomFloor);
         
-        JButton addTextButton = new JButton("Add Text");
+        JButton addTextButton = new JButton("Add Cage");
         addTextButton.addActionListener(roomFloor);
         panelSouth.add(addTextButton);
         
@@ -93,6 +101,11 @@ public class GUI implements Serializable
     
     private class cagePanel extends JPanel
     {
+        int id;
+        
+        cagePanel(int id) {
+            this.id = id;
+        }
         
         public void paintComponent (Graphics g) {
             int r = (int) (Math.random() *250);
@@ -108,11 +121,20 @@ public class GUI implements Serializable
     private class floorPanel extends JPanel implements ActionListener
     {
         public void actionPerformed(ActionEvent ev) {
-            cagePanel cp = new cagePanel();
-            cageList.add(cp);
+            String input = JOptionPane.showInputDialog("Type in cage number:");
+            int cageID = 999;
             
+            try {
+                cageID = Integer.parseInt(input);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Only Integer Values Accepted, set cage number to 999 at default");
+            }
+            
+            
+            cagePanel cp = new cagePanel(cageID);
+            cp.add(new JLabel(Integer.toString(cp.id)));
             roomFloor.add(cp);
-            
+            room.addCage(cp.id);
             roomFloor.revalidate();
             roomFloor.repaint();
             //frame.getContentPane().add(BorderLayout.CENTER, roomFloor);
@@ -121,4 +143,41 @@ public class GUI implements Serializable
         
         
     }
+    
+    public void saveSession() {
+        try { 
+            FileOutputStream fs = new FileOutputStream("session.ser");
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+            os.writeObject(room);
+            os.close();
+            JOptionPane.showMessageDialog(frame, "Session Saved!");
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    class SaveListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            saveSession();
+        }
+    }
+    
+    
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.params=room
+comment0.params=roomID
 comment0.target=AnimalRoom(java.lang.String)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ AnimalRoom\r\n
 comment1.params=id\ year\ month\ day\ isFemale\ tag\ genotype

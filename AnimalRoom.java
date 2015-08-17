@@ -11,16 +11,16 @@ public class AnimalRoom implements Serializable
     // instance variables - replace the example below with your own
     private ArrayList<Mouse> listMouse;
     private ArrayList<Cage> listCage;
-    private String room;
+    private String roomID;
     
 
     /**
      * Constructor for objects of class AnimalRoom
      */
-    public AnimalRoom(String room)
+    public AnimalRoom(String roomID)
     {
         // initialise instance variables
-        room = room;
+        this.roomID = roomID;
         listCage = new ArrayList<Cage> ();
         listMouse = new ArrayList<Mouse> ();
     }

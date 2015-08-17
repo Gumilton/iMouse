@@ -24,10 +24,10 @@ public class Cage implements Serializable
     public Cage(int id)
     {
         // initialise instance variables
-        id = id;
-        adultNum = 0;
-        pupNum = 0;
-        isMating = false;
+        this.id = id;
+        this.adultNum = 0;
+        this.pupNum = 0;
+        this.isMating = false;
         
     }
     
