@@ -1,4 +1,5 @@
 import java.io.*;
+import javax.swing.*;
 
 /**
  * Write a description of class Import here.
@@ -20,14 +21,17 @@ public class Import
     {
         // put your code here
         
-        try {
-            FileInputStream fs = new FileInputStream("session.ser");
-            ObjectInputStream is = new ObjectInputStream(fs);
-            AnimalRoom one = (AnimalRoom) is.readObject();
-            is.close();
-            System.out.println("Obejct is " + one.getRoomID());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+            try {
+                JFrame frame = new JFrame();
+                JFileChooser fileImport = new JFileChooser();
+                fileImport.showSaveDialog(frame);
+                FileInputStream fs = new FileInputStream(fileImport.getSelectedFile());
+                ObjectInputStream is = new ObjectInputStream(fs);
+                AnimalRoom one = (AnimalRoom) is.readObject();
+                is.close();
+                System.out.println("Obejct is " + one.getRoomID());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
     }
 }
